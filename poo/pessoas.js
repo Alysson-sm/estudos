@@ -22,8 +22,8 @@ infomaçoes [1] = 'idade';
 infomaçoes [2] = 'cidade';
 infomaçoes [3] = 'estado';
 
-var i = 0;
-/*while(i < infomaçoes.length){
+/*var i = 0;
+while(i < infomaçoes.length){
     console.log(infomaçoes[i])
     i++
     
