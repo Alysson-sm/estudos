@@ -16,15 +16,15 @@ class pessoas {
         }
 
 
-var infomaçoes = Array();
-infomaçoes [0] = 'nome';
-infomaçoes [1] = 'idade';
-infomaçoes [2] = 'cidade';
-infomaçoes [3] = 'estado';
+var infomacoes = Array();
+infomacoes [0] = 'nome';
+infomacoes [1] = 'idade';
+infomacoes [2] = 'cidade';
+infomacoes [3] = 'estado';
 
 /*var i = 0;
-while(i < infomaçoes.length){
-    console.log(infomaçoes[i])
+while(i < infomacoes.length){
+    console.log(infomacoes[i])
     i++
     
 }*/
@@ -35,12 +35,12 @@ var capturardados= Array();
      
      
      if(cont == 0 || cont == 3){
-        capturardados[cont] = prompt('qual o seu '+infomaçoes[cont]+'?');
+        capturardados[cont] = prompt('qual o seu '+infomacoes[cont]+'?');
         console.log(capturardados[cont])
         cont++
         
     }else{
-        capturardados[cont] = prompt('qual o sua '+infomaçoes[cont]+'?');
+        capturardados[cont] = prompt('qual o sua '+infomacoes[cont]+'?');
         console.log(capturardados[cont])
         cont++
         
