@@ -1,4 +1,4 @@
-class casa {
+class Casa {
     constructor(rua,bairro,areaDoTerreno,areaConstruida,valorDoAlugel){
     this.rua = rua;
     this.bairro = bairro;
@@ -17,7 +17,7 @@ class casa {
 
 }
 
-var novacasa = new casa('Alfedro gaspar','Alphavile','1000m²','700m²','R$1480,00');
+var novacasa = new Casa('Alfedro gaspar','Alphavile','1000m²','700m²','R$1480,00');
 
 novacasa.informaçoescasa();
 
