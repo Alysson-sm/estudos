@@ -7,7 +7,7 @@ class Casa {
     this.valorDoAlugel = valorDoAlugel;
     }
 
-    informaçoescasa(){
+    informacoescasa(){
         console.log('Rua: '+this.rua);
         console.log('Bairro: '+this.bairro);
         console.log('Área do terreno: '+this.areaDoTerreno);
@@ -19,7 +19,7 @@ class Casa {
 
 var novacasa = new Casa('Alfedro gaspar','Alphavile','1000m²','700m²','R$1480,00');
 
-novacasa.informaçoescasa();
+novacasa.informacoescasa();
 
 
 
