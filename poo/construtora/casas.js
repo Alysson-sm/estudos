@@ -67,7 +67,7 @@ while(contadora <= 4){
             contadora++
             break;
         case 3:
-            valoresCasa[contadora] = prompt('Informe o tamanho da area contruida doterreno')
+            valoresCasa[contadora] = prompt('Informe o tamanho da area construida doterreno')
             console.log('Área construida do terreno: '+valoresCasa[contadora]+'m²');
             contadora++
             break;
