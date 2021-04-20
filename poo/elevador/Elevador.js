@@ -54,7 +54,7 @@ class Elevador {
         console.log('Ocupação total: '+this.quantidadeAtualPessoas);
     }
     adicionarUmaPessoa(){
-        if (this.quantidadeAtualPessoas < 5) {
+        if (this.quantidadeAtualPessoas < this.capaxidadeMaximaPesssoas) {
             this.quantidadeAtualPessoas++
             console.log('uma pessoa entrou no elevador, '+this.quantidadeAtualPessoas);
         }
