@@ -4,11 +4,13 @@ class Elevador {
         this.andarAtual = 0;
         this.capaxidadeMaximaPesssoas = 5;
         this.quantidadeAtualPessoas = 0;
+        this.pesoMaximoSuportado = 300;
+        this.pesoAtualTotalDasPessoas = 0;
 
     }
 
-    exibitAndarAtual(){
-        console.log('voce esta no andar: '+this.andarAtual);
+    exibitAndarAtual() {
+        console.log('voce esta no andar: ' + this.andarAtual);
     }
 
     movimentar(andarPretendido) {
@@ -43,43 +45,53 @@ class Elevador {
             }
             if (this.andarAtual == andarPretendido) {
 
-                console.log('O elevador ja esta nesse andar ! '+ andarPretendido);
-                
+                console.log('O elevador ja esta nesse andar ! ' + andarPretendido);
+
             }
             this.andarAtual = andarPretendido;
         }
 
     }
-    exibirQuantidadeAtualDePessoas(){
-        console.log('Ocupação total: '+this.quantidadeAtualPessoas);
+    exibirQuantidadeAtualDePessoas() {
+        console.log('Ocupação total: ' + this.quantidadeAtualPessoas);
     }
-    adicionarUmaPessoa(){
-        if (this.quantidadeAtualPessoas < this.capaxidadeMaximaPesssoas) {
+    adicionarUmaPessoa(pesoDaPessoa) {
+        /*Ao tentar efetuar a soma sem usar o valor de pesoDaPessoa na condiçao nao se pode obter um valor valido*/
+
+        /* a validaçao para entrada de uma nova pessoa agora é feita por quantidade e peso */
+        if (this.quantidadeAtualPessoas < this.capaxidadeMaximaPesssoas && pesoDaPessoa + this.pesoAtualTotalDasPessoas <= this.pesoMaximoSuportado) {
+
             this.quantidadeAtualPessoas++
-            console.log('uma pessoa entrou no elevador, '+this.quantidadeAtualPessoas);
+            this.pesoAtualTotalDasPessoas = this.pesoAtualTotalDasPessoas + pesoDaPessoa
+
+            console.log('uma pessoa entrou no elevador, QUANTIDADE DE PESSOAS: ' + this.quantidadeAtualPessoas,
+                '|| O elevado esta com ' + this.pesoAtualTotalDasPessoas + ' quilos'
+
+            );
         }
-        else{
+        else {
 
             console.log('Entrada nao permitida a capacidade maxima de pessoas no elevador ja foi atingida');
         }
+
     }
-    removerUmaPessoa(){
+    removerUmaPessoa() {
         if (this.quantidadeAtualPessoas > 0) {
             this.quantidadeAtualPessoas--
-        console.log('uma pessoa saiu do elevador, '+ this.quantidadeAtualPessoas);
+            console.log('uma pessoa saiu do elevador, ' + this.quantidadeAtualPessoas);
         }
-        else{
+        else {
             console.log('Nao há ninguem no elevador');
         }
     }
 
 }
 
-var novopredio = new Elevador(20);
+var novopredio = new Elevador(20);  /* informando valor de 20 andares para o constructor com a  entrada de nome quantidadeDeAndares*/
 
 novopredio.exibitAndarAtual();
 
-novopredio.movimentar(10)
+novopredio.movimentar(10)   
 
 novopredio.exibitAndarAtual();
 
@@ -87,12 +99,18 @@ novopredio.movimentar(5)
 
 novopredio.exibirQuantidadeAtualDePessoas();
 
-novopredio.adicionarUmaPessoa();
+/* como a validaçao agora necessita de duas condiçoes para ser validada esse trecho de codigo causa um erro por informar apenas um valor da condiçao o de quantidade e nao o de peso 
 
 novopredio.adicionarUmaPessoa();
-
+novopredio.adicionarUmaPessoa();
 novopredio.removerUmaPessoa();
-
 novopredio.adicionarUmaPessoa();
-
 novopredio.exibirQuantidadeAtualDePessoas()
+
+*/
+
+novopredio.adicionarUmaPessoa(80);
+novopredio.adicionarUmaPessoa(80);
+novopredio.adicionarUmaPessoa(80);
+novopredio.adicionarUmaPessoa(40);  // momento onde o limite de peso ainda e valido
+novopredio.adicionarUmaPessoa(55);  // onde o limite de peso e execido e informa o else com erro.
