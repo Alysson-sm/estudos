@@ -88,7 +88,7 @@ class Elevador {
                 '|| O elevado esta com ' + this.pesoAtualTotalDasPessoas + ' quilos');
             
             
-            peso.splice(pessoa, 1);
+            peso.splice(pessoa, 1); //primeiro valor e o index onde se incia a remoçao o segundo a quantidade de valores a serem removido
             
 
         }
