@@ -28,7 +28,7 @@ class Elevador {
                 console.log('------------------------------------');
 
                 while (cont < andarPretendido) {
-                    console.log('Elevador subindo - ANDAR : ' + cont)  // mostra os andares que o elevador esta passando
+                    console.log('Elevador subindo - ANDAR : ' + cont)
                     cont++
                 }
                 console.log('voce chegou ao andar de destino!');
@@ -38,7 +38,7 @@ class Elevador {
                 console.log('------------------------------------');
 
                 while (cont < andarPretendido) {
-                    console.log('Elevador descendo - ANDAR : ' + cont)  // mostra os andares que o elevador esta passando
+                    console.log('Elevador descendo - ANDAR : ' + cont)
                     cont++
                 }
                 console.log('voce chegou ao andar de destino!');
@@ -56,13 +56,16 @@ class Elevador {
         console.log('Ocupação total: ' + this.quantidadeAtualPessoas);
     }
     adicionarUmaPessoa(pesoDaPessoa) {
-        /*Ao tentar efetuar a soma sem usar o valor de pesoDaPessoa na condiçao nao se pode obter um valor valido*/
 
-        /* a validaçao para entrada de uma nova pessoa agora é feita por quantidade e peso */
         if (this.quantidadeAtualPessoas < this.capaxidadeMaximaPesssoas && pesoDaPessoa + this.pesoAtualTotalDasPessoas <= this.pesoMaximoSuportado) {
+
 
             this.quantidadeAtualPessoas++
             this.pesoAtualTotalDasPessoas = this.pesoAtualTotalDasPessoas + pesoDaPessoa
+
+            peso.push(pesoDaPessoa)  //o array peso recebe o pesoDaPessoa e armazena ele na posiçao da variavel contadora
+            //console.log('pessoa ' + contadora + ': ' + peso[contadora]);
+            contadora++
 
             console.log('uma pessoa entrou no elevador, QUANTIDADE DE PESSOAS: ' + this.quantidadeAtualPessoas,
                 '|| O elevado esta com ' + this.pesoAtualTotalDasPessoas + ' quilos'
@@ -75,10 +78,19 @@ class Elevador {
         }
 
     }
-    removerUmaPessoa() {
+    removerUmaPessoa(pessoa) {
         if (this.quantidadeAtualPessoas > 0) {
+
             this.quantidadeAtualPessoas--
-            console.log('uma pessoa saiu do elevador, ' + this.quantidadeAtualPessoas);
+            this.pesoAtualTotalDasPessoas = this.pesoAtualTotalDasPessoas - peso[pessoa];
+
+            console.log('uma pessoa saiu do elevador, QUANTIDADE DE PESSOAS: ' + this.quantidadeAtualPessoas,
+                '|| O elevado esta com ' + this.pesoAtualTotalDasPessoas + ' quilos');
+            
+            
+            peso.splice(pessoa, 1);
+            
+
         }
         else {
             console.log('Nao há ninguem no elevador');
@@ -86,31 +98,28 @@ class Elevador {
     }
 
 }
-
-var novopredio = new Elevador(20);  /* informando valor de 20 andares para o constructor com a  entrada de nome quantidadeDeAndares*/
-
-novopredio.exibitAndarAtual();
-
-novopredio.movimentar(10)   
+var contadora = 0;
+var peso = [];
+var novopredio = new Elevador(20);
 
 novopredio.exibitAndarAtual();
-
+novopredio.movimentar(10)
+novopredio.exibitAndarAtual();
 novopredio.movimentar(5)
-
 novopredio.exibirQuantidadeAtualDePessoas();
-
-/* como a validaçao agora necessita de duas condiçoes para ser validada esse trecho de codigo causa um erro por informar apenas um valor da condiçao o de quantidade e nao o de peso 
-
-novopredio.adicionarUmaPessoa();
-novopredio.adicionarUmaPessoa();
-novopredio.removerUmaPessoa();
-novopredio.adicionarUmaPessoa();
-novopredio.exibirQuantidadeAtualDePessoas()
-
-*/
 
 novopredio.adicionarUmaPessoa(80);
 novopredio.adicionarUmaPessoa(80);
 novopredio.adicionarUmaPessoa(80);
 novopredio.adicionarUmaPessoa(40);  // momento onde o limite de peso ainda e valido
-novopredio.adicionarUmaPessoa(55);  // onde o limite de peso e execido e informa o else com erro.
+novopredio.adicionarUmaPessoa(20);  // onde o limite de peso e execido e informa o else com erro.
+
+novopredio.removerUmaPessoa(3);
+novopredio.exibirQuantidadeAtualDePessoas();
+novopredio.adicionarUmaPessoa(40);
+console.log(peso);
+
+
+
+
+
