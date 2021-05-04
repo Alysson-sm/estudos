@@ -100,25 +100,27 @@ class Elevador {
 }
 var contadora = 0;
 var peso = [];
-var novopredio = new Elevador(20);
+var passageiro = new Elevador(20);
 
-novopredio.exibitAndarAtual();
-novopredio.movimentar(10)
-novopredio.exibitAndarAtual();
-novopredio.movimentar(5)
-novopredio.exibirQuantidadeAtualDePessoas();
+passageiro.exibitAndarAtual();
+passageiro.movimentar(10)
+passageiro.exibitAndarAtual();
+passageiro.movimentar(5)
+passageiro.exibirQuantidadeAtualDePessoas();
 
-novopredio.adicionarUmaPessoa(80);
-novopredio.adicionarUmaPessoa(80);
-novopredio.adicionarUmaPessoa(80);
-novopredio.adicionarUmaPessoa(40);  // momento onde o limite de peso ainda e valido
-novopredio.adicionarUmaPessoa(20);  // onde o limite de peso e execido e informa o else com erro.
+passageiro.adicionarUmaPessoa(80);
+passageiro.adicionarUmaPessoa(80);
+passageiro.adicionarUmaPessoa(80);
+passageiro.adicionarUmaPessoa(40);  // momento onde o limite de peso ainda e valido
+passageiro.adicionarUmaPessoa(20);  // onde o limite de peso e execido e informa o else com erro.
 
-novopredio.removerUmaPessoa(3);
-novopredio.exibirQuantidadeAtualDePessoas();
-novopredio.adicionarUmaPessoa(40);
-console.log(peso);
+passageiro.removerUmaPessoa(0);
+passageiro.removerUmaPessoa(1);
+passageiro.removerUmaPessoa(2);
 
+passageiro.exibirQuantidadeAtualDePessoas();
+passageiro.adicionarUmaPessoa(180);
+passageiro.exibirQuantidadeAtualDePessoas();
 
 
 
